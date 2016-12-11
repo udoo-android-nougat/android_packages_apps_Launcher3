@@ -108,7 +108,8 @@ public class QsbContainerView extends FrameLayout {
 
         private View createQsb(LayoutInflater inflater, ViewGroup container) {
             Launcher launcher = Launcher.getLauncher(getActivity());
-            mWidgetInfo = getSearchWidgetProvider(launcher);
+            //mWidgetInfo = getSearchWidgetProvider(launcher);
+            mWidgetInfo = null;
             if (mWidgetInfo == null) {
                 return null;
             }
