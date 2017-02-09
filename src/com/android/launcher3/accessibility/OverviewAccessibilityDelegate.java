@@ -35,7 +35,6 @@ public class OverviewAccessibilityDelegate extends AccessibilityDelegate {
     private static final int OVERVIEW = R.string.accessibility_action_overview;
     private static final int WALLPAPERS = R.string.wallpaper_button_text;
     private static final int WIDGETS = R.string.widget_button_text;
-    private static final int SETTINGS = R.string.settings_button_text;
 
     @Override
     public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
@@ -48,7 +47,6 @@ public class OverviewAccessibilityDelegate extends AccessibilityDelegate {
             info.addAction(new AccessibilityAction(WALLPAPERS, context.getText(WALLPAPERS)));
         }
         info.addAction(new AccessibilityAction(WIDGETS, context.getText(WIDGETS)));
-        info.addAction(new AccessibilityAction(SETTINGS, context.getText(SETTINGS)));
     }
 
     @Override
@@ -62,9 +60,6 @@ public class OverviewAccessibilityDelegate extends AccessibilityDelegate {
             return true;
         } else if (action == WIDGETS) {
             launcher.onClickAddWidgetButton(host);
-            return true;
-        } else if (action == SETTINGS) {
-            launcher.onClickSettingsButton(host);
             return true;
         }
         return super.performAccessibilityAction(host, action, args);

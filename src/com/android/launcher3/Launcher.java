@@ -1406,26 +1406,6 @@ public class Launcher extends Activity
         });
         mWidgetsButton.setOnLongClickListener(performClickOnLongClick);
         mWidgetsButton.setOnTouchListener(getHapticFeedbackTouchListener());
-
-        // Bind settings actions
-        View settingsButton = findViewById(R.id.settings_button);
-        boolean hasSettings = hasSettings();
-        if (hasSettings) {
-            settingsButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (!mWorkspace.isSwitchingState()) {
-                        onClickSettingsButton(view);
-                    }
-                }
-            });
-            settingsButton.setOnLongClickListener(performClickOnLongClick);
-            settingsButton.setOnTouchListener(getHapticFeedbackTouchListener());
-        } else {
-            settingsButton.setVisibility(View.GONE);
-        }
-
-        mOverviewPanel.setAlpha(0f);
     }
 
     /**
@@ -2655,18 +2635,6 @@ public class Launcher extends Activity
                 .putExtra(Utilities.EXTRA_WALLPAPER_OFFSET, offset);
         intent.setSourceBounds(getViewBounds(v));
         startActivityForResult(intent, REQUEST_PICK_WALLPAPER, getActivityLaunchOptions(v));
-    }
-
-    /**
-     * Event handler for a click on the settings button that appears after a long press
-     * on the home screen.
-     */
-    public void onClickSettingsButton(View v) {
-        if (LOGD) Log.d(TAG, "onClickSettingsButton");
-        Intent intent = new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
-                .setPackage(getPackageName());
-        intent.setSourceBounds(getViewBounds(v));
-        startActivity(intent, getActivityLaunchOptions(v));
     }
 
     public View.OnTouchListener getHapticFeedbackTouchListener() {

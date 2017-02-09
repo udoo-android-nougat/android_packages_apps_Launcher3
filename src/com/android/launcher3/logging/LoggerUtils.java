@@ -88,7 +88,6 @@ public class LoggerUtils {
             case LauncherLogProto.ALL_APPS_BUTTON: return "ALL_APPS_BUTTON";
             case LauncherLogProto.WIDGETS_BUTTON: return "WIDGETS_BUTTON";
             case LauncherLogProto.WALLPAPER_BUTTON: return "WALLPAPER_BUTTON";
-            case LauncherLogProto.SETTINGS_BUTTON: return "SETTINGS_BUTTON";
             case LauncherLogProto.REMOVE_TARGET: return "REMOVE_TARGET";
             case LauncherLogProto.UNINSTALL_TARGET: return "UNINSTALL_TARGET";
             case LauncherLogProto.APPINFO_TARGET: return "APPINFO_TARGET";
@@ -201,9 +200,6 @@ public class LoggerUtils {
         Target t = new LauncherLogProto.Target();
         t.type = Target.ITEM;
         switch (info.itemType) {
-            case LauncherSettings.Favorites.ITEM_TYPE_APPLICATION:
-                t.itemType = LauncherLogProto.APP_ICON;
-                break;
             case LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT:
                 t.itemType = LauncherLogProto.SHORTCUT;
                 break;
